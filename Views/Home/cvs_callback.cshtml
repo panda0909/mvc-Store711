@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "cvs_callback";
+}
+@section scripts{
+    <script>
+        let cvsResp = @Html.Raw(Json.Serialize(ViewBag.cvsResp));
+        if(window.opener && window.opener.openerCallback) {
+            window.opener.openerCallback(cvsResp);
+            window.close();
+        }
+    </script>
+}

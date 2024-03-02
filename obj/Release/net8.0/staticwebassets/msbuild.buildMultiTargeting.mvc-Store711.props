@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\mvc-Store711.props" />
+</Project>

@@ -1,0 +1,7 @@
+C:\Users\Pan\Desktop\code\程式\mvc-Store711\bin\Release\net8.0\publish\mvc-Store711.exe
+C:\Users\Pan\Desktop\code\程式\mvc-Store711\bin\Release\net8.0\publish\appsettings.Development.json
+C:\Users\Pan\Desktop\code\程式\mvc-Store711\bin\Release\net8.0\publish\appsettings.json
+C:\Users\Pan\Desktop\code\程式\mvc-Store711\bin\Release\net8.0\publish\mvc-Store711.dll
+C:\Users\Pan\Desktop\code\程式\mvc-Store711\bin\Release\net8.0\publish\mvc-Store711.deps.json
+C:\Users\Pan\Desktop\code\程式\mvc-Store711\bin\Release\net8.0\publish\mvc-Store711.runtimeconfig.json
+C:\Users\Pan\Desktop\code\程式\mvc-Store711\bin\Release\net8.0\publish\mvc-Store711.pdb

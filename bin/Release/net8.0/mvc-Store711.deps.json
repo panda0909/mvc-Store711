@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "mvc-Store711/1.0.0": {
+        "runtime": {
+          "mvc-Store711.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "mvc-Store711/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

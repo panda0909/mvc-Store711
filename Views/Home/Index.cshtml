@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1>選擇7-11超商地址</h1>
+<div class="btn btn-primary cvs-address js-cvs-address red" storeid="">點我選擇</div>
+<div id="result">
+    
+</div>
+
+@section scripts{
+<script>
+    let rootUrl = GetRootUrl();
+    let cvsDom = document.getElementsByClassName('js-cvs-address')[0];
+    window.onload = function() {
+        cvsDom.addEventListener('click', cvsSelect);
+    }
+
+    function cvsSelect() {
+        //'http://www.boatsky.com/demo/cvs/cvs_submit', laravel TokenMismatchException
+        let cvsSubmitPage = window.open(`${rootUrl}/cvs_submit`, '_blank');
+        if (cvsSubmitPage) {
+            let form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', 'https://emap.presco.com.tw/c2cemap.ashx');
+            let requestData = {
+                eshopid: 3,
+                showtype: 1,
+                tempvar: getRandomStr(),
+                url: `${rootUrl}/cvs_callback`,
+            }
+            // if (cvsDom.getAttribute('storeid')) {
+            //     data.showtype = 2;
+            //     data.storeid = cvsDom.getAttribute('storeid');
+            // }
+            for (let k in requestData) {
+                if (requestData.hasOwnProperty(k)) {
+                    let input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = k;
+                    input.value = requestData[k];
+                    form.appendChild(input);
+                }
+            }
+            cvsSubmitPage.onload = () => {
+                cvsSubmitPage.document.body.appendChild(form);
+                form.submit();
+            }
+        }
+    }
+    //最终回调
+    window.openerCallback = function(cvsResp) {
+        console.log(cvsResp);
+        if(cvsResp) {
+            $("#result").html(JSON.stringify(cvsResp));
+            //cvsDom.innerHTML = cvsResp.storeaddress;
+            //cvsDom.setAttribute('storeid', cvsResp.storeid);
+        }
+    }
+    //得到一个随机字符串
+    function getRandomStr(len = 20){
+        let chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let charsLen = chars.length;
+        let str = '';
+        for(let i = 0;i < len;i++){
+            str = str + chars.charAt(Math.floor(Math.random() * charsLen));
+        }
+        return str;
+    }
+</script>
+}
